@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            transition: margin-left 0.3s;
+        }
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background-color: #0d2f63;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: left 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar.closed {
+            left: -250px;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: #0d2f63;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sidebar-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #092443;
+        }
+        .sidebar i {
+            margin-right: 10px;
+        }
+        .logout-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 10px;
+            color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+        }
+        .logout-btn i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleSidebar"><i class="fas fa-chevron-left"></i>«</button>
+        <div>
+            <div class="sidebar-header">
+                <img src="gambar.png">
+                <div>
+                    <h5 class="mb-0">Admin</h5>
+                    <p class="mb-0" style="font-size: 0.8rem;">admin@mail.com</p>
+                </div>
+            </div>
+            <a href="#" class="active"><i class="fas fa-check-square"></i>✉ Helperlog</a>
+            <a href="#"><i class="fas fa-search"></i>? Helperfind</a>
+        </div>
+        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i>🡄 Log Out</button>
+    </div>
+
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.classList.contains("closed")) {
+                sidebar.classList.remove("closed");
+                this.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            } else {
+                sidebar.classList.add("closed");
+                this.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            }
+        });
+
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
