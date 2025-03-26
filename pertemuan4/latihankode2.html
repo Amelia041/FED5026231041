@@ -2,120 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Menu</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Latihan PWEB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            transition: margin-left 0.3s;
-        }
-        .sidebar {
-            width: 250px;
-            min-height: 100vh;
-            background-color: #0d2f63;
-            color: white;
-            padding: 20px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            transition: left 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .sidebar.closed {
-            left: -250px;
-        }
-        .toggle-btn {
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background-color: #0d2f63;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .sidebar-header img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .sidebar a.active, .sidebar a:hover {
-            background-color: #092443;
-        }
-        .sidebar i {
-            margin-right: 10px;
-        }
-        .logout-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            border: none;
-            padding: 10px 10px;
-            color: white;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            text-align: left;
-        }
-        .logout-btn i {
-            margin-right: 5px;
-        }
+        
     </style>
+
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <button class="toggle-btn" id="toggleSidebar"><i class="fas fa-chevron-left"></i>«</button>
-        <div>
-            <div class="sidebar-header">
-                <img src="gambar.png">
-                <div>
-                    <h5 class="mb-0">Admin</h5>
-                    <p class="mb-0" style="font-size: 0.8rem;">admin@mail.com</p>
-                </div>
+    <div id="sidebar">
+        <button id="toggleSidebar" class="toggle-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="sidebar-header">
+            <img src="gambar.png" alt="Admin" style="width:50px; height:50px; border-radius:50%;">
+            <div>
+                <h5 class="mb-0">Admin</h5>
+                <p class="mb-0" style="font-size: 0.8rem;">admin@mail.com</p>
             </div>
-            <a href="#" class="active"><i class="fas fa-check-square"></i>✉ Helperlog</a>
-            <a href="#"><i class="fas fa-search"></i>? Helperfind</a>
         </div>
-        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i>🡄 Log Out</button>
+
+        <!-- Menu -->
+        <div class="menu">
+            <a href="#" id="helperlog"><i class="fas fa-clipboard-list"></i> Helperlog</a>
+            <a href="#"><i class="fas fa-search"></i> Helperfind</a>
+        </div>
+
+        <!-- Tombol logout -->
+        <div class="sidebar-footer">
+            <a href="#" class="btn btn-sm"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </div>
     </div>
 
+    <div id="content">
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Selamat Datang.</p>
+        </div>
+        <div id="detailPRT" style="display: none;">
+            <h2>
+                <a href="#" id="backToDashboard" style="color: black; text-decoration: none; font-size: 1.5rem; font-weight: bold;">
+                    <i class="fas fa-arrow-left"></i> Detail PRT
+                </a>
+            </h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <img src="gambarorang1.jpg" class="img-fluid rounded mb-3" alt="Foto PRT">
+                    <div class="d-flex justify-content-between">
+                        <img src="gambarorang2.jpg" class="img-thumbnail" width="80">
+                        <img src="gambarorang3.jpg" class="img-thumbnail" width="80">
+                        <img src="gambarorang4.jpg" class="img-thumbnail" width="80">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h5><strong>Nagisa Natsumi</strong></h5>
+                    <p>Perawat Lansia</p>
+                    <table class="table table-bordered text-center mt-3">
+                        <tr>
+                            <th>
+                                <h1>4</h1>
+                                <h5>Tahun Pengalaman</h5>
+                            </th>
+                            <th>
+                                <h1><i class="fa-regular fa-star text-warning"></i> 4.6</h1>
+                                <h5>Rating</h5>
+                            </th>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered mt-3">
+                        <tr class="biodata-header">
+                            <th colspan="2">Biodata</th>
+                        </tr>
+                        <tr><td>Keahlian 1</td><td>Memasak</td></tr>
+                        <tr><td>Keahlian 2</td><td>Mencuci baju</td></tr>
+                        <tr><td>Keahlian 3</td><td>Menyetir</td></tr>
+                        <tr><td>Keahlian 4</td><td>-</td></tr>
+                    </table>
+                    <button id="editDataBtn" class="btn mt-3 w-100">Edit Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        document.getElementById("toggleSidebar").addEventListener("click", function() {
-            var sidebar = document.getElementById("sidebar");
-            if (sidebar.classList.contains("closed")) {
-                sidebar.classList.remove("closed");
-                this.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            } else {
-                sidebar.classList.add("closed");
-                this.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            }
+        $(document).ready(function () {
+            $("#toggleSidebar").click(function () {
+                $("#sidebar").toggleClass("hidden-sidebar");
+                $("#content").toggleClass("hidden-content");
+                let icon = $("#toggleSidebar i");
+                icon.toggleClass("fa-chevron-left fa-chevron-right");
+            });
+            $("#helperlog").click(function () {
+                $("#dashboard").hide();
+                $("#detailPRT").fadeIn();
+            });
+            $("#backToDashboard").click(function () {
+                $("#detailPRT").fadeOut(function () {
+                    $("#dashboard").fadeIn();
+                });
+            });
         });
-
-        function logout() {
-            alert("Logging out...");
-            window.location.href = "login.html";
-        }
     </script>
 </body>
 </html>
